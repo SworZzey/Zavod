@@ -1,0 +1,319 @@
+body {
+  background-color: #272727;
+}
+.HeadSrvices {
+  color: #14a76c;
+}
+.HeadClient {
+  color: #14a76c;
+}
+
+.Commer {
+  color: #747474;
+  background-color: #ff652f;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.Prod {
+  color: #747474;
+  background-color: #ff652f;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: 30px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.techno {
+  color: #747474;
+  background-color: #ff652f;
+  padding: 5px;
+  text-decoration: none;
+  margin-left: 30px;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.zak {
+  color: #747474;
+  background-color: #ff652f;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.Commerce {
+  color: #14a76c;
+}
+
+.MainPage {
+  color: #747474;
+  background-color: #ff652f;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 600;
+}
+
+.vidLes {
+  color: #747474;
+  background-color: #14a74c;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  margin-left: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.Clint1 {
+  color: #747474;
+  background-color: #14a74c;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  margin-left: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.Order1 {
+  color: #747474;
+  background-color: #14a74c;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  margin-left: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Общие стили формы */
+form {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #14a74c; /* Основной фон формы */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Стили для заголовков */
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #ffe400; /* Желтый для текста заголовков */
+}
+
+/* Стили для полей ввода */
+form input[type="date"],
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 2px solid #ffe400; /* Желтая рамка */
+  border-radius: 4px;
+  background-color: white;
+  color: #333;
+  font-size: 16px;
+}
+
+/* При фокусе на полях ввода */
+form input[type="date"]:focus,
+form input[type="text"]:focus,
+form input[type="number"]:focus,
+form select:focus,
+form textarea:focus {
+  border-color: #ff652f; /* Оранжевая рамка при фокусе */
+  outline: none;
+  box-shadow: 0 0 5px rgba(255, 101, 47, 0.7);
+}
+
+/* Стили для кнопки отправки */
+form button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #ff652f; /* Оранжевая кнопка */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* При наведении на кнопку */
+form button[type="submit"]:hover {
+  background-color: #e04527; /* Темнее при наведении */
+}
+
+/* Стили для текста ошибок */
+.error-messages p {
+  color: #ff652f; /* Оранжевый для ошибок */
+  margin: 5px 0;
+}
+
+/* Стили для текста успешного сообщения */
+.success-message {
+  color: #14a74c; /* Зеленый для успеха */
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Общий контейнер */
+.les-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #14a74c; /* Зеленый фон */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.les-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffe400; /* Желтый цвет для заголовка */
+  margin-bottom: 15px;
+}
+
+/* Список */
+.les-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Элементы списка */
+.les-item {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ff652f; /* Оранжевый фон элементов списка */
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Эффект при наведении */
+.les-item:hover {
+  background-color: #e04527; /* Темнее при наведении */
+  transform: scale(1.05);
+}
+
+
+/* Общий контейнер */
+.clients-container {
+  width: 100%;
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #14a76c; /* Желтый фон */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: #333;
+  font-family: Arial, sans-serif;
+}
+
+/* Заголовок */
+.clients-title {
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  color: #ffe400; /* Зеленый цвет для заголовка */
+  margin-bottom: 15px;
+}
+
+/* Список */
+.clients-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Элементы списка */
+.clients-item {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ff652f; /* Оранжевый фон элементов списка */
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+/* Эффект при наведении */
+.clients-item:hover {
+  background-color: #e04527; /* Темнее при наведении */
+  transform: scale(1.05);
+}
+
+.orders-container {
+  padding: 20px;
+  background-color: #14a74c; /* Зеленый фон блока */
+  border-radius: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  color: white; /* Текст внутри блока белый для контраста */
+  margin-top: 20px;
+}
+
+.orders-title {
+  font-size: 24px;
+  color: #ffe400; /* Желтый цвет для заголовка */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.orders-list {
+  list-style: none;
+  padding: 0;
+}
+
+.order-item {
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white; /* Белый фон для черновиков */
+  color: black;
+}
+
+.order-item.approved {
+  background-color: #ff652f; /* Оранжевый цвет для согласованных заказов */
+  color: white;
+}
+
+.order-item.draft {
+  background-color: white; /* Белый цвет для черновиков */
+  color: black;
+}
+
+.orders-empty {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+}
+
