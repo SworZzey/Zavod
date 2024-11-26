@@ -1,29 +1,29 @@
 {
     "1": {
-        "orderDate": "2024-10-29",
-        "deliveryDate": "2024-11-02",
+        "orderDate": "2024-10-30",
+        "deliveryDate": "2024-11-09",
         "customerInfo": "Инокентий",
         "productType": "Сырые пиломатериалы",
         "quantity": "5",
-        "additionalInfo": "Для Бани",
+        "additionalInfo": "Хочу построить Баню",
         "OrderStatus": "Согласован клиентом"
     },
     "2": {
-        "orderDate": "2024-11-13",
-        "deliveryDate": "2024-12-08",
+        "orderDate": "2024-11-06",
+        "deliveryDate": "2024-11-29",
         "customerInfo": "Александр",
         "productType": "Сухие пиломатериалы",
-        "quantity": "1",
-        "additionalInfo": "Для стола",
+        "quantity": "3",
+        "additionalInfo": "Всегда хотел себе стол",
         "OrderStatus": "Согласован клиентом"
     },
     "3": {
-        "orderDate": "2024-10-30",
-        "deliveryDate": "2024-11-17",
+        "orderDate": "2024-11-22",
+        "deliveryDate": "2024-12-01",
         "customerInfo": "Инокентий",
         "productType": "Рейки",
-        "quantity": "20",
-        "additionalInfo": "Для Дома",
+        "quantity": "5",
+        "additionalInfo": "Баню надо достраивать",
         "OrderStatus": "Согласован клиентом"
     }
 }

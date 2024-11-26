@@ -4,7 +4,21 @@ const fs = require('fs');
 
 let mainWindow;
 
+// Путь к JSON-файлу в директории данных приложения
+const dbPath = path.join(__dirname, 'data', 'bd.json');
+
+// Функция для проверки и создания файла JSON
+const ensureDbFile = () => {
+  if (!fs.existsSync(dbPath)) {
+    fs.mkdirSync(path.dirname(dbPath), { recursive: true });
+    fs.writeFileSync(dbPath, JSON.stringify({}));
+  }
+};
+
+// Создаём окно приложения
 app.on('ready', () => {
+  ensureDbFile();
+
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -14,31 +28,49 @@ app.on('ready', () => {
       contextIsolation: true,
     },
   });
-  mainWindow.setMenuBarVisibility(false)
+
+  mainWindow.setMenuBarVisibility(false);
   mainWindow.loadURL('http://localhost:3000'); // Или путь к вашему React приложению
 });
 
-// Путь к файлу JSON
-console.log('Current __dirname:', __dirname);
-const dbPath = path.resolve(__dirname, '..', '..', 'react-app', 'src', 'components', 'application', 'bd.json');
-console.log('Resolved Path:', dbPath);
-
-// Обработчик события сохранения
-ipcMain.on('save-order', (event, orderData) => {
+// IPC-обработчик для получения данных из JSON
+ipcMain.handle('get-json-data', async () => {
   try {
-    let data = {};
-    if (fs.existsSync(dbPath)) {
-      const fileData = fs.readFileSync(dbPath);
-      data = JSON.parse(fileData);
-    }
+    const data = JSON.parse(fs.readFileSync(dbPath, 'utf-8'));
+    return { success: true, data };
+  } catch (err) {
+    console.error('Error reading JSON file:', err);
+    return { success: false, error: 'Не удалось загрузить данные.' };
+  }
+});
+
+// IPC-обработчик для записи данных в JSON
+ipcMain.handle('save-order', async (event, orderData) => {
+  try {
+    const fileData = fs.readFileSync(dbPath, 'utf-8');
+    const data = JSON.parse(fileData);
 
     const newId = Object.keys(data).length + 1;
     data[newId] = orderData;
 
     fs.writeFileSync(dbPath, JSON.stringify(data, null, 4));
-    event.sender.send('order-saved', true);
+
+    console.log(`Order #${newId} saved successfully.`);
+    return { success: true, message: `Order #${newId} saved successfully.` };
   } catch (error) {
     console.error('Error saving data:', error);
-    event.sender.send('order-saved', false);
+    return { success: false, error: 'Не удалось сохранить данные.' };
+  }
+});
+
+// IPC-обработчик для загрузки заказов
+ipcMain.handle('load-orders', async () => {
+  try {
+    const fileData = fs.readFileSync(dbPath, 'utf-8');
+    const data = JSON.parse(fileData);
+    return { success: true, data };
+  } catch (err) {
+    console.error('Error loading orders:', err);
+    return { success: false, error: 'Не удалось загрузить заказы.' };
   }
 });

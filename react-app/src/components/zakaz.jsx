@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import {NavLink} from "react-router-dom";
-const { ipcRenderer } = window.electron
+import { NavLink } from "react-router-dom";
 
 const Zakaz = () => {
     const [formData, setFormData] = useState({
@@ -23,26 +22,30 @@ const Zakaz = () => {
         }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         const errors = [];
         const { orderDate, deliveryDate } = formData;
 
+        // Проверка заполненности обязательных полей
         if (!orderDate || !deliveryDate) {
             errors.push('Все обязательные поля должны быть заполнены.');
         }
 
+        // Проверка даты
         if (deliveryDate && orderDate && new Date(deliveryDate) <= new Date(orderDate)) {
             errors.push('Дата поставки не может быть меньше или равна дате регистрации заказа.');
         }
 
-        if (formData.customerInfo !== "" && formData.productType !== "" && formData.quantity !== 0) {
-            formData.OrderStatus = "Согласован клиентом"
+        // Установка статуса заказа
+        if (formData.customerInfo && formData.productType && formData.quantity > 0) {
+            formData.OrderStatus = "Согласован клиентом";
         } else {
-            formData.OrderStatus = "Черновик"
+            formData.OrderStatus = "Черновик";
         }
 
+        // Если есть ошибки, выводим их
         if (errors.length > 0) {
             setErrorMessages(errors);
             return;
@@ -50,13 +53,13 @@ const Zakaz = () => {
 
         setErrorMessages([]);
 
-        // Отправляем данные в главный процесс для сохранения
-        ipcRenderer.send('save-order', formData);
+        try {
+            // Используем IPC для отправки данных в главный процесс
+            const response = await window.electron.saveOrder(formData);
 
-        // Слушаем подтверждение от главного процесса
-        ipcRenderer.once('order-saved', (event, success) => {
-            if (success) {
+            if (response.success) {
                 setSuccessMessage('Данные успешно сохранены!');
+                // Сбрасываем форму
                 setFormData({
                     orderDate: '',
                     deliveryDate: '',
@@ -67,9 +70,12 @@ const Zakaz = () => {
                     OrderStatus: ''
                 });
             } else {
-                setErrorMessages(['Ошибка при сохранении данных.']);
+                setErrorMessages([response.error || 'Ошибка при сохранении данных.']);
             }
-        });
+        } catch (error) {
+            console.error('Error sending order data:', error);
+            setErrorMessages(['Произошла ошибка при отправке данных.']);
+        }
     };
 
     return (
