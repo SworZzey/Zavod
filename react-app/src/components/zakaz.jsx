@@ -140,19 +140,18 @@ const Zakaz = () => {
                 />
 
                 <button type="submit">Отправить</button>
+                {errorMessages.length > 0 && (
+                    <div>
+                        {errorMessages.map((msg, i) => (
+                            <p key={i} style={{ color: 'red' }}>{msg}</p>
+                        ))}
+                    </div>
+                )}
+
+                {successMessage && (
+                    <p style={{ color: 'green' }}>{successMessage}</p>
+                )}
             </form>
-
-            {errorMessages.length > 0 && (
-                <div>
-                    {errorMessages.map((msg, i) => (
-                        <p key={i} style={{ color: 'red' }}>{msg}</p>
-                    ))}
-                </div>
-            )}
-
-            {successMessage && (
-                <p style={{ color: 'green' }}>{successMessage}</p>
-            )}
         </div>
     );
 };

@@ -95,6 +95,31 @@ body {
   cursor: pointer;
 }
 
+.Order2 {
+  color: #747474;
+  background-color: #14a74c;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  margin-top: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.Order3 {
+  color: #747474;
+  background-color: #14a74c;
+  padding: 5px;
+  text-decoration: none;
+  border-radius: 5px;
+  border: none;
+  margin-top: 30px;
+  margin-left: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 /* Общие стили формы */
 form {
   width: 100%;
@@ -223,6 +248,31 @@ form button[type="submit"]:hover {
 }
 
 
+.les-rab-item {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ffe400; /* Оранжевый фон элементов списка */
+  color: white;
+  border-radius: 4px;
+  border: none;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.les-rab-button {
+  font-size: 18px;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #ff652f; /* Оранжевый фон элементов списка */
+  color: white;
+  border-radius: 4px;
+  text-align: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+}
 /* Общий контейнер */
 .clients-container {
   width: 100%;
@@ -311,9 +361,56 @@ form button[type="submit"]:hover {
   color: black;
 }
 
+.order-item.making {
+  background-color: #ffe400;
+  color: black;
+}
+
 .orders-empty {
   color: white;
   text-align: center;
   font-size: 18px;
+}
+
+/*ФОРМА ЗАДАНИЯ*/
+
+.production-task-form {
+  max-width: 600px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+  margin-top: 20px;
+}
+
+.production-task-form label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+.production-task-form input,
+.production-task-form textarea,
+.production-task-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.production-task-form .error {
+  color: red;
+  font-size: 0.9em;
+}
+
+.production-task-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.production-task-form button:hover {
+  background-color: #45a049;
 }
 

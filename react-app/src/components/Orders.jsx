@@ -35,7 +35,7 @@ const Orders = () => {
                         <li
                             key={id}
                             className={`order-item ${
-                                order.OrderStatus === 'Согласован клиентом' ? 'approved' : 'draft'
+                                order.OrderStatus === 'Принят в производство' ? 'making' : order.OrderStatus === 'Согласован клиентом' ? 'approved' : 'draft'
                             }`}
                         >
                             {`${id}. Дата заказа: ${order.orderDate}, Дата выполнения: ${order.deliveryDate}, Имя заказчика: ${order.customerInfo}, Вид продукции: ${order.productType}, Количество: ${order.quantity}, Дополнительно: ${order.additionalInfo}, Статус заказа: ${order.OrderStatus}`}
